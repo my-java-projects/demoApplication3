@@ -1,4 +1,4 @@
-package org.example.demoapplication2.entity;
+package org.example.demoapplication.entity;
 
 import jakarta.persistence.*;
 import lombok.*;
@@ -18,6 +18,9 @@ public class Customer {
 
     @Column(unique = true, nullable = false)
     private String nationalId;
+
+    @Column(unique = true, nullable = false)
+    private String customerNumber;
 
     private String firstName;
     private String lastName;

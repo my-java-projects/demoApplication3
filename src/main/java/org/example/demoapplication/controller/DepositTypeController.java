@@ -1,12 +1,13 @@
-package org.example.demoapplication2.controller;
+package org.example.demoapplication.controller;
 
-import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
-import org.example.demoapplication2.entity.DepositType;
-import org.example.demoapplication2.service.DepositTypeService;
+import org.example.demoapplication.entity.DepositType;
+import org.example.demoapplication.service.DepositTypeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/deposit-types")
@@ -26,10 +27,13 @@ public class DepositTypeController {
         return ResponseEntity.ok("Deposit Type created with Code: " + createdDepositType.getCode());
     }
 
-    @GetMapping("/{id}")
-    public ResponseEntity<DepositType> getDepositTypeById(@PathVariable Long id) {
-        return depositTypeService.getDepositTypeById(id)
-                .map(ResponseEntity::ok)
-                .orElse(ResponseEntity.status(404).body(null));
+    @GetMapping("/{code}")
+    public ResponseEntity<Optional<DepositType>> getDepositTypeByCode(@PathVariable Integer code) {
+        Optional<DepositType> depositType = depositTypeService.getDepositTypeByCode(code);
+        if (depositType.isPresent()) {
+            return ResponseEntity.ok(depositType);
+        } else {
+            return ResponseEntity.notFound().build();
+        }
     }
 }
