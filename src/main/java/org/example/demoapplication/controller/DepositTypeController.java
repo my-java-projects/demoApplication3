@@ -16,7 +16,7 @@ public class DepositTypeController {
 
     private DepositTypeService depositTypeService;
 
-    @Autowired
+
     public DepositTypeController(DepositTypeService depositTypeService) {
         this.depositTypeService = depositTypeService;
     }
