@@ -8,17 +8,26 @@ import org.example.demoapplication.dao.DepositTypeDAO;
 import org.example.demoapplication.entity.Customer;
 import org.example.demoapplication.entity.Deposit;
 import org.example.demoapplication.entity.DepositType;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
 import java.util.List;
 import java.util.Optional;
 
-@AllArgsConstructor
+@Service
 public class DepositService {
 
     private final DepositDAO depositDAO;
     private final CustomerDAO customerDAO;
     private final DepositTypeDAO depositTypeDAO;
+
+    @Autowired
+    public DepositService(DepositDAO depositDAO, CustomerDAO customerDAO, DepositTypeDAO depositTypeDAO) {
+        this.depositDAO = depositDAO;
+        this.customerDAO = customerDAO;
+        this.depositTypeDAO = depositTypeDAO;
+    }
 
     public Deposit createDeposit(String customerNumber, Integer depositTypeCode, BigDecimal initialBalance) {
         Optional<Customer> customerOptional = customerDAO.findByCustomerNumber(customerNumber);

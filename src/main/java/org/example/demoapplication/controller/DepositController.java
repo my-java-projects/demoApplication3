@@ -2,6 +2,7 @@ package org.example.demoapplication.controller;
 
 import org.example.demoapplication.entity.Deposit;
 import org.example.demoapplication.service.DepositService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -18,6 +19,7 @@ public class DepositController {
 
     private final DepositService depositService;
 
+    @Autowired
     public DepositController(DepositService depositService) {
         this.depositService = depositService;
     }

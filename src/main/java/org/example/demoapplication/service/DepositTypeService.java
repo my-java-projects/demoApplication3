@@ -2,15 +2,19 @@ package org.example.demoapplication.service;
 
 import org.example.demoapplication.dao.DepositTypeDAO;
 import org.example.demoapplication.entity.DepositType;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.Optional;
 import java.util.Random;
 
+@Service
 public class DepositTypeService {
 
     private final DepositTypeDAO depositTypeDAO;
 
     // Constructor-based dependency injection
+    @Autowired
     public DepositTypeService(DepositTypeDAO depositTypeDAO) {
         this.depositTypeDAO = depositTypeDAO;
     }

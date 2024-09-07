@@ -3,15 +3,19 @@ package org.example.demoapplication.service;
 import lombok.NoArgsConstructor;
 import org.example.demoapplication.dao.CustomerDAO;
 import org.example.demoapplication.entity.Customer;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.Optional;
 import java.util.UUID;
 
 //@NoArgsConstructor
+@Service
 public class CustomerService {
 
     private final CustomerDAO customerDAO;
 
+    @Autowired
     public CustomerService(CustomerDAO customerDAO) {
         this.customerDAO = customerDAO;
     }
