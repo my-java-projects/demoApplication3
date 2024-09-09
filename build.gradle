@@ -38,7 +38,7 @@ dependencies {
 	annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
 
 	// Spring Boot DevTools for development
-	developmentOnly 'org.springframework.boot:spring-boot-devtools'
+	//developmentOnly 'org.springframework.boot:spring-boot-devtools'
 
 	// Springdoc OpenAPI UI for Swagger
 	implementation 'org.springdoc:springdoc-openapi-starter-webmvc-ui:2.2.0'
@@ -50,6 +50,8 @@ dependencies {
 	//lombok
 	implementation 'org.projectlombok:lombok'
 	annotationProcessor 'org.projectlombok:lombok'
+
+	implementation 'com.fasterxml.jackson.core:jackson-databind'
 }
 
 tasks.named('test') {

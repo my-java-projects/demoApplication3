@@ -36,7 +36,7 @@ public class AppConfig {
 
             // Optional Hibernate settings
             hibernateProperties.put(Environment.SHOW_SQL, "true");
-            hibernateProperties.put(Environment.HBM2DDL_AUTO, "create");
+            hibernateProperties.put(Environment.HBM2DDL_AUTO, "update");
 
             configuration.setProperties(hibernateProperties);
 

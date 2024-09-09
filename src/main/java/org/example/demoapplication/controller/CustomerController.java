@@ -22,6 +22,7 @@ public class CustomerController {
 
     @PostMapping
     public ResponseEntity<String> createCustomer(@RequestBody Customer customer) {
+        System.out.println("customer in controller: "+ customer);
         String customerNumber = customerService.createCustomer(customer);
         return ResponseEntity.ok("Customer created with unique customer number: " + customerNumber);  // Return unique customer number
     }

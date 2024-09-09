@@ -27,6 +27,8 @@ public class CustomerDAO {
         Transaction transaction = null;
         try {
             transaction = session.beginTransaction();
+            System.out.println("customer id  "+ customer.getId());
+            System.out.println("sessionFactory "+ sessionFactory);
             session.saveOrUpdate(customer);
             transaction.commit();
         } catch (Exception e) {
